@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Install dependencies with Pip.
 puts-step "Installing dependencies with pip"
 
