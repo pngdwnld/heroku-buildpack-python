@@ -56,7 +56,7 @@ bpwatch start compile
 
 
 # We'll need to send these statics to other scripts we `source`.
-export BUILD_DIR CACHE_DIR BIN_DIR PROFILE_PATH
+export BUILD_DIR CACHE_DIR BIN_DIR PROFILE_PATH ENV_DIR
 
 # Syntax sugar.
 source $BIN_DIR/utils
