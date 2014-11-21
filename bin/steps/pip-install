@@ -19,7 +19,7 @@ export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/app/.apt/usr/include:/app/.apt/us
 
 echo $(export)
 
-/app/.heroku/python/bin/pip install -r requirements.txt --exists-action=w --src=./.heroku/src --allow-all-external  | cleanup | indent
+/app/.heroku/python/bin/pip install -r requirements.txt --exists-action=w --src=./.heroku/src --allow-all-external --user | cleanup | indent
 
 # Smart Requirements handling
 cp requirements.txt .heroku/python/requirements-declared.txt
