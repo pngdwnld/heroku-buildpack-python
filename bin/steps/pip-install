@@ -11,6 +11,7 @@ puts-step "Installing dependencies with pip"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/.apt/usr/lib/x86_64-linux-gnu/:/app/.apt/usr/lib/atlas-base/atlas/
 export BLAS=/app/.apt/usr/lib/libblas/libblas.so
 export LAPACK=/app/.apt/usr/lib/lapack/liblapack.a
+export PATH=$PATH:/app/.apt/usr/bin/
 
 echo $(export)
 
