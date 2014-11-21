@@ -34,6 +34,12 @@ PYTHON_EXE="/app/.heroku/python/bin/python"
 PIP_VERSION="1.5.6"
 SETUPTOOLS_VERSION="7.0"
 
+# Setup python exe and pip
+PYTHON_EXE_DIR=/app/.heroku/python/bin/
+mkdir -p $PYTHON_EXE_DIR
+ln -s /usr/bin/python3 $PYTHON_EXE_DIR/python
+ln -s /app/.apt/usr/bin/pip3 $PYTHON_EXE_DIR/pip
+
 # Setup bpwatch
 export PATH=$PATH:$ROOT_DIR/vendor/bpwatch
 LOGPLEX_KEY="t.b90d9d29-5388-4908-9737-b4576af1d4ce"
@@ -152,8 +158,6 @@ mkdir -p $(dirname $PROFILE_PATH)
 
 # Install Python.
 #source $BIN_DIR/steps/python
-
-ln -s /app/.apt/usr/bin/python3 $PYTHON_EXE
 
 # Sanity check for setuptools/distribute.
 #source $BIN_DIR/steps/setuptools
