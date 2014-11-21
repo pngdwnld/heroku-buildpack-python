@@ -7,6 +7,9 @@
 # Fail fast and fail hard.
 set -eo pipefail
 
+#update-alternatives --set libblas.so.3 /app/.apt/usr/lib/atlas-base/atlas/libblas.so.3
+#update-alternatives --set liblapack.so.3 /app/.apt/usr/lib/atlas-base/atlas/liblapack.so.3
+
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
 
@@ -148,10 +151,12 @@ set -e
 mkdir -p $(dirname $PROFILE_PATH)
 
 # Install Python.
-source $BIN_DIR/steps/python
+#source $BIN_DIR/steps/python
+
+ln -s /app/.apt/usr/bin/python3 $PYTHON_EXE
 
 # Sanity check for setuptools/distribute.
-source $BIN_DIR/steps/setuptools
+#source $BIN_DIR/steps/setuptools
 
 # Uninstall removed dependencies with Pip.
 source $BIN_DIR/steps/pip-uninstall
