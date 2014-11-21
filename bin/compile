@@ -156,8 +156,10 @@ mkdir -p $(dirname $PROFILE_PATH)
 # Setup python exe and pip
 PYTHON_EXE_DIR=.heroku/python/bin/
 mkdir -p $PYTHON_EXE_DIR
+set +e
 ln -s /usr/bin/python3 $PYTHON_EXE_DIR/python
 ln -s /app/.apt/usr/bin/pip3 $PYTHON_EXE_DIR/pip
+set -e
 
 
 # Sanity check for setuptools/distribute.
