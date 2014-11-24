@@ -8,11 +8,6 @@ puts-step "Installing dependencies with pip"
 [ ! "$FRESH_PYTHON" ] && bpwatch start pip_install
 [ "$FRESH_PYTHON" ] && bpwatch start pip_install_first
 
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/.apt/usr/lib/x86_64-linux-gnu/:/app/.apt/usr/lib/atlas-base/atlas/:/usr/lib/gcc/x86_64-linux-gnu/4.8/
-#export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/gcc/x86_64-linux-gnu/4.8/
-#export BLAS=/app/.apt/usr/lib/atlas/atlas-base/libblas.so.3
-#export LAPACK=/app/.apt/usr/lib/atlas/atlas-base/lapack/liblapack.so.3
-#export PATH=$PATH:/app/.apt/usr/bin/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/.apt/usr/lib/atlas-base/atlas/:/app/.apt/usr/lib/x86_64-linux-gnu/
 export C_INCLUDE_PATH=$C_INCLUDE_PATH:/app/.apt/usr/include:/app/.apt/usr/include/python3.4
 export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/app/.apt/usr/include:/app/.apt/usr/include/python3.4
