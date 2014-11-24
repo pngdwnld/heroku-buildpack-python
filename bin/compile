@@ -148,7 +148,15 @@ set -e
 mkdir -p $(dirname $PROFILE_PATH)
 
 # Install Python.
-source $BIN_DIR/steps/python
+#source $BIN_DIR/steps/python
+
+# Setup python exe and pip
+PYTHON_EXE_DIR=.heroku/python/bin/
+mkdir -p $PYTHON_EXE_DIR
+set +e
+ln -s /usr/bin/python3 $PYTHON_EXE_DIR/python
+ln -s /app/.apt/usr/bin/pip3 $PYTHON_EXE_DIR/pip
+set -e
 
 # Sanity check for setuptools/distribute.
 source $BIN_DIR/steps/setuptools
@@ -166,7 +174,7 @@ source $BIN_DIR/steps/pylibmc
 source $BIN_DIR/steps/cryptography
 
 # Install dependencies with Pip.
-source $BIN_DIR/steps/pip-install
+sub-env $BIN_DIR/steps/pip-install
 
 # Django collectstatic support.
 sub-env $BIN_DIR/steps/collectstatic
@@ -180,11 +188,10 @@ set-env PATH '$HOME/.heroku/python/bin:$PATH'
 set-env PYTHONUNBUFFERED true
 set-env PYTHONHOME /app/.heroku/python
 set-env LIBRARY_PATH /app/.heroku/vendor/lib:/app/.heroku/python/lib
-set-env LD_LIBRARY_PATH '/app/.heroku/vendor/lib:/app/.heroku/python/lib:$LD_LIBRARY_PATH'
+set-env LD_LIBRARY_PATH '/app/.apt/usr/lib/atlas-base/atlas:/app/.heroku/vendor/lib:/app/.heroku/python/lib:$LD_LIBRARY_PATH'
+set-env PYTHONPATH '/app/.apt/usr/lib/python3/dist-packages:/app/:$PYTHONPATH'
 set-default-env LANG en_US.UTF-8
 set-default-env PYTHONHASHSEED random
-set-default-env PYTHONPATH /app/
-
 
 # Experimental post_compile hook.
 bpwatch start post_compile
