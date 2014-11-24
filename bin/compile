@@ -150,10 +150,8 @@ mkdir -p $(dirname $PROFILE_PATH)
 # Soft-link python exe and pip
 PYTHON_EXE_DIR=.heroku/python/bin/
 mkdir -p $PYTHON_EXE_DIR
-set +e
-ln -s /usr/bin/python3 $PYTHON_EXE_DIR/python
-ln -s /app/.apt/usr/bin/pip3 $PYTHON_EXE_DIR/pip
-set -e
+ln -s /usr/bin/python3 $PYTHON_EXE_DIR/python || true
+ln -s /app/.apt/usr/bin/pip3 $PYTHON_EXE_DIR/pip || true
 
 # Sanity check for setuptools/distribute.
 source $BIN_DIR/steps/setuptools
