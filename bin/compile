@@ -148,7 +148,7 @@ set -e
 mkdir -p $(dirname $PROFILE_PATH)
 
 # Install Python.
-source $BIN_DIR/steps/python
+#source $BIN_DIR/steps/python
 
 # Setup python exe and pip
 #PYTHON_EXE_DIR=.heroku/python/bin/
@@ -157,7 +157,6 @@ source $BIN_DIR/steps/python
 #ln -s /usr/bin/python3 $PYTHON_EXE_DIR/python
 #ln -s /app/.apt/usr/bin/pip3 $PYTHON_EXE_DIR/pip
 #set -e
-
 
 # Sanity check for setuptools/distribute.
 source $BIN_DIR/steps/setuptools
